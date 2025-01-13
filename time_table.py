@@ -38,6 +38,15 @@ if selected_day_filter != "All":
 st.dataframe(filtered_timetable.fillna(""))
 
 # Export to CSV
-if st.button("Export Timetable to CSV"):
-    filtered_timetable.to_csv("timetable.csv")
-    st.success("Timetable exported as 'timetable.csv'")
+   # Export to CSV with a download button
+   if st.button("Export Timetable to CSV"):
+       # Save the filtered timetable to a CSV file in memory
+       filtered_csv = filtered_timetable.to_csv(index=True, encoding='utf-8')
+       st.download_button(
+           label="Download Timetable as CSV",
+           data=filtered_csv,
+           file_name="timetable.csv",
+           mime="text/csv",
+       )
+       st.success("Timetable is ready for download.")
+
