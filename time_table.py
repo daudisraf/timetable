@@ -4,7 +4,7 @@ import pandas as pd
 # Initialize a blank timetable
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 hours = [f"{i}:00 - {i+1}:00" for i in range(8, 18)]  # Slots from 8 AM to 6 PM
-classes = [f"Class {i}" for i in range(1, 21)]
+classes = [f"DK {i}" for i in range(1, 21)]
 
 timetable = pd.DataFrame(index=pd.MultiIndex.from_product([days, hours], names=["Day", "Hour"]),
                          columns=classes)
